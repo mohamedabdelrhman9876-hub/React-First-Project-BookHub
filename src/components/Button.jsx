@@ -1,19 +1,8 @@
  import PropTypes from 'prop-types';
 
-function Button({ label, onClick, variant = "primary" }) {
+export default function Button({ label, onClick, className }) {
   return (
-    <button 
-      onClick={onClick} 
-      style={{
-        padding: "8px 16px",
-        backgroundColor: variant === "primary" ? "#007bff" : "#6c757d",
-        color: "white",
-        border: "none",
-        borderRadius: "4px",
-        cursor: "pointer",
-        fontWeight: "bold"
-      }}
-    >
+    <button className={`custom-btn ${className || ''}`} onClick={onClick}>
       {label}
     </button>
   );
@@ -21,8 +10,6 @@ function Button({ label, onClick, variant = "primary" }) {
 
 Button.propTypes = {
   label: PropTypes.string.isRequired,
-  onClick: PropTypes.func,
-  variant: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+  className: PropTypes.string
 };
-
-export default Button;
