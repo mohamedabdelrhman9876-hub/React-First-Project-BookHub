@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 
+
 const initialBooks = [
   {
     id: 1,
@@ -13,7 +14,7 @@ const initialBooks = [
     published: "2008",
     language: "English",
     description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees.",
-    image: "https://m.media-amazon.com/images/I/71T7aXT3PdL._AC_UF1000,1000_QL80_.jpg"
+    image: "./book covres/clean_code_cover.png"
   },
   {
     id: 2,
@@ -26,7 +27,7 @@ const initialBooks = [
     published: "2018",
     language: "English",
     description: "Atomic Habits shows how small changes, repeated consistently, can lead to remarkable results.",
-    image: "https://m.media-amazon.com/images/I/91bYsX41DVL._AC_UF1000,1000_QL80_.jpg"
+    image: "./book covres/atomic_habits_cover.png"
   },
   {
     id: 3,
@@ -38,8 +39,8 @@ const initialBooks = [
     pages: 369,
     published: "2014",
     language: "English",
-    description: "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars. Now, he's sure he'll be the first person to die there.",
-    image: "https://m.media-amazon.com/images/I/81wxd6WYycL._AC_UF1000,1000_QL80_.jpg"
+    description: "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars.",
+    image: "./book covres/the_martian_cover.png"
   },
   {
     id: 4,
@@ -51,8 +52,8 @@ const initialBooks = [
     pages: 688,
     published: "1965",
     language: "English",
-    description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides, heir to a noble family task with ruling an inhospitable world.",
-    image: "https://m.media-amazon.com/images/I/A1u44fEN0JL._AC_UF1000,1000_QL80_.jpg"
+    description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides.",
+    image: "./book covres/dune_cover.png"
   },
   {
     id: 5,
@@ -64,8 +65,8 @@ const initialBooks = [
     pages: 336,
     published: "2018",
     language: "English",
-    description: "Own Your Morning. Elevate Your Life. Legendary leadership and elite performance expert Robin Sharma introduced The 5am Club concept over twenty years ago.",
-    image: "https://m.media-amazon.com/images/I/71jG+e7roXL._AC_UF1000,1000_QL80_.jpg"
+    description: "Own Your Morning. Elevate Your Life. Legendary leadership and elite performance expert.",
+    image: "./book covres/the_5am_club_cover.png"
   },
   {
     id: 6,
@@ -77,20 +78,19 @@ const initialBooks = [
     pages: 395,
     published: "1994",
     language: "English",
-    description: "Capturing a wealth of experience about the design of object-oriented software, four top-notch designers present a catalog of simple and succinct solutions.",
-    image: "https://m.media-amazon.com/images/I/81gtKoapHFL._AC_UF1000,1000_QL80_.jpg"
+    description: "Capturing a wealth of experience about the design of object-oriented software.",
+    image: "./book covres/design_patterns_cover.png"
   }
 ];
 
 function App() {
   const [books, setBooks] = useState(initialBooks);
-  const [activeTab, setActiveTab] = useState('Home'); // 'Home', 'Categories', 'About'
+  const [activeTab, setActiveTab] = useState('Home');
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [selectedBook, setSelectedBook] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [isAddModalOpen, setIsAddModalOpen] = useState(false);
 
-  
   const [newBook, setNewBook] = useState({
     title: '',
     author: '',
@@ -106,7 +106,6 @@ function App() {
     return matchesSearch && matchesCategory;
   });
 
-  
   const handleAddBook = (e) => {
     e.preventDefault();
     if (!newBook.title || !newBook.author) return;
@@ -119,7 +118,7 @@ function App() {
       pages: 250,
       published: "2026",
       language: "English",
-      image: newBook.image || "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=500&q=80"
+      image: newBook.image || "./book covres/clean_code_cover.png"
     };
 
     setBooks([createdBook, ...books]);
@@ -129,7 +128,6 @@ function App() {
 
   return (
     <div className="bookhub-app">
-      {/* Navigation Header */}
       <header className="navbar">
         <div className="nav-brand" onClick={() => { setActiveTab('Home'); setSelectedBook(null); }}>
           <span className="book-icon">📖</span>
@@ -173,9 +171,7 @@ function App() {
         </div>
       </header>
 
-      {/* BODY CONTENT */}
       {selectedBook ? (
-        /* BOOK DETAILS VIEW */
         <main className="book-details-view">
           <button className="back-link" onClick={() => setSelectedBook(null)}>
             ← Back to books
@@ -229,7 +225,6 @@ function App() {
           </div>
         </main>
       ) : activeTab === 'Categories' ? (
-        /* CATEGORIES WITH SIDEBAR VIEW */
         <div className="categories-layout">
           <aside className="sidebar">
             <h3>Categories</h3>
@@ -240,12 +235,6 @@ function App() {
                   className={selectedCategory === cat ? 'active-sidebar' : ''}
                   onClick={() => setSelectedCategory(cat)}
                 >
-                  {cat === 'All' && '🌐'}
-                  {cat === 'Programming' && '💻'}
-                  {cat === 'Self Help' && '⭐'}
-                  {cat === 'Science Fiction' && '🚀'}
-                  {cat === 'Fantasy' && '🧙'}
-                  {cat === 'Productivity' && '📈'}
                   <span>{cat}</span>
                 </li>
               ))}
@@ -276,13 +265,11 @@ function App() {
           </main>
         </div>
       ) : activeTab === 'About' ? (
-        /* ABOUT PAGE VIEW */
         <main className="about-view">
           <h2>About BookHub</h2>
           <p>BookHub is a modern web application designed for book lovers to discover, organize, and manage their favorite books easily.</p>
         </main>
       ) : (
-        /* HOME PAGE VIEW WITH HERO BANNER */
         <main className="home-view">
           <section className="hero-banner">
             <div className="hero-content">
@@ -338,7 +325,6 @@ function App() {
         </main>
       )}
 
-      {/* ADD NEW BOOK MODAL */}
       {isAddModalOpen && (
         <div className="modal-overlay">
           <div className="modal-card">
@@ -390,10 +376,10 @@ function App() {
                 ></textarea>
               </div>
               <div className="form-group">
-                <label>Cover Image URL</label>
+                <label>Cover Image Path</label>
                 <input 
                   type="text" 
-                  placeholder="https://example.com/image.jpg"
+                  placeholder="./book covres/image.png"
                   value={newBook.image}
                   onChange={(e) => setNewBook({...newBook, image: e.target.value})}
                 />
@@ -407,7 +393,6 @@ function App() {
         </div>
       )}
 
-      {/* Footer */}
       <footer className="footer">
         <p>© 2026 BookHub. All rights reserved.</p>
       </footer>
