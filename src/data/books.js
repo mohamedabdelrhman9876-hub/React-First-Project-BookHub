@@ -1,4 +1,4 @@
-
+ // src/data/books.js
 export const booksData = [
   {
     id: 1,
@@ -11,7 +11,7 @@ export const booksData = [
     published: "2008",
     language: "English",
     description: "Even bad code can function. But if code isn't clean, it can bring a development organization to its knees.",
-    cover: "./book covres/clean_code_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/clean_code_cover.png"
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ export const booksData = [
     published: "2018",
     language: "English",
     description: "Atomic Habits shows how small changes, repeated consistently, can lead to remarkable results.",
-    cover: "./book covres/atomic_habits_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/atomic_habits_cover.png"
   },
   {
     id: 3,
@@ -37,7 +37,7 @@ export const booksData = [
     published: "2014",
     language: "English",
     description: "Six days ago, astronaut Mark Watney became one of the first people to walk on Mars.",
-    cover: "./book covres/the_martian_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/the_martian_cover.png"
   },
   {
     id: 4,
@@ -50,7 +50,7 @@ export const booksData = [
     published: "1965",
     language: "English",
     description: "Set on the desert planet Arrakis, Dune is the story of the boy Paul Atreides.",
-    cover: "./book covres/dune_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/dune_cover.png"
   },
   {
     id: 5,
@@ -63,7 +63,7 @@ export const booksData = [
     published: "2018",
     language: "English",
     description: "Own Your Morning. Elevate Your Life. Legendary leadership and elite performance expert.",
-    cover: "./book covres/the_5am_club_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/the_5am_club_cover.png"
   },
   {
     id: 6,
@@ -76,6 +76,6 @@ export const booksData = [
     published: "1994",
     language: "English",
     description: "Capturing a wealth of experience about the design of object-oriented software.",
-    cover: "./book covres/design_patterns_cover.png"
+    cover: "/React-First-Project-BookHub/book_covres/design_patterns_cover.png"
   }
 ];
